@@ -3,7 +3,10 @@
 Die Versionen folgen dem Schema `haupt.neben`. Solange die Hauptnummer 0 ist, können
 sich das Speicherformat und die Erzeugung noch ändern.
 
-## Unveröffentlicht
+## 0.2 — 13. September 2026
+
+Eine reine Umbenennung: keine neue Fähigkeit, kein geändertes Verhalten. Wer 0.1
+kennt, findet dieselbe Ebene unter anderem Namen vor.
 
 - **Umbenennung in „Ebene 17"**, durchgezogen bis in den Code. Der Name stand vorher im
   Widerspruch zum Repository `ebene17`. Mitgeändert: Titel, Logo, Ladeschirm, Hilfefenster,
