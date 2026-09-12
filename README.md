@@ -172,6 +172,7 @@ alles Weitere — Oberfläche, Verhalten, Fortsetzen eines Standes — steht in
 - [docs/entscheidungen.md](docs/entscheidungen.md) — dreizehn Entscheidungen mit
   Begründung und Folgekosten
 - [docs/pruefungen.md](docs/pruefungen.md) — was geprüft wird und wie
+- [CHANGELOG.md](CHANGELOG.md) — was in welcher Version steckt
 
 ## Veröffentlichung
 
