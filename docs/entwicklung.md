@@ -126,6 +126,17 @@ auf den Browser-Speicher zurück.
 zusieht" — das stimmte nie. Die Simulation läuft nicht im Hintergrund, sie wird beim
 Öffnen aus dem gesicherten Stand fortgesetzt.
 
+## 9 — Veröffentlichung auf GitHub Pages
+
+Die Seite braucht keinen Server: `index.html` liegt im Wurzelverzeichnis, alle Pfade
+sind relativ. Pages liefert daher unverändert aus `main` aus, ohne Bauschritt und ohne
+Arbeitsablauf. `.nojekyll` schaltet die Jekyll-Verarbeitung ab.
+
+**Geprüft nach dem ersten Build**: Seite und alle vier Skripte antworten mit 200 und
+korrektem Inhaltstyp, 60 Bilder je Sekunde auf der Live-Adresse, keine Meldung in der
+Konsole, und die Sicherung greift auch dort (8,1 KB im Browser-Speicher unter der
+Pages-Domain).
+
 ---
 
 ## Gemessene Werte

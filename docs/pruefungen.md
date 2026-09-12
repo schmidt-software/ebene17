@@ -70,3 +70,22 @@ Zusätzlich zu prüfen:
 - `R` fragt nach, bevor ein gesicherter Stand verworfen wird.
 - Ohne verfügbaren Speicher (privates Fenster mit blockiertem Speicher) läuft die Seite
   unverändert weiter und zeigt „kein Speicher verfügbar".
+
+## Nach dem Veröffentlichen
+
+Ein Push auf `main` geht innerhalb einer halben Minute live. Danach:
+
+```bash
+gh api repos/schmidt-software/ebene17/pages/builds/latest --jq '.status, .error.message'
+
+B=https://schmidt-software.github.io/ebene17
+for P in / /styles.css /js/store.js /js/world.js /js/render.js /js/app.js; do
+  curl -s -o /dev/null -w "%{http_code} %{content_type}  $P\n" "$B$P"
+done
+```
+
+Erwartet wird `built` ohne Fehlermeldung und sechsmal `200` mit passendem Inhaltstyp.
+Ein `404` auf eine der Skriptdateien deutet auf einen absoluten Pfad hin — die Seite
+liegt im Unterverzeichnis `/ebene17/`, nicht an der Wurzel der Domain. Danach die
+Live-Adresse einmal im Browser öffnen und die [Oberflächen-Prüfungen](#oberfläche)
+durchgehen.

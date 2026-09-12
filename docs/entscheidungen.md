@@ -141,3 +141,18 @@ angemeldet wird.
 **Entscheidung.** Aufbau, Grafik und Figuren sind vollständig eigen; gezeichnet wird
 ausschliesslich aus Rechtecken und Ellipsen zur Laufzeit. Übernommen ist allein die
 Idee der Gattung: eine endlose Etage voller kleiner Szenen.
+
+### 14 — GitHub Pages als öffentliche Heimat
+
+**Lage.** Die Seite existierte zunächst nur als veröffentlichtes Artefakt. Das ist an
+ein Konto gebunden und lässt sich nicht frei verlinken.
+
+**Entscheidung.** Auslieferung über GitHub Pages, direkt aus `main` im
+Wurzelverzeichnis — dieselben Dateien, die im Repository stehen, ohne Bauschritt.
+
+**Folgen.** Code und veröffentlichte Seite können nicht auseinanderlaufen: jeder Push
+ist nach einer halben Minute live. Der Preis ist, dass dort keine Artefakt-Laufzeit
+existiert — also kein geteilter Speicher, sondern Ebene 2 (siehe 10 und 12). Damit
+Pages die Dateien unverändert ausliefert, liegt ein leeres `.nojekyll` im
+Wurzelverzeichnis; und alle Pfade in `index.html` müssen relativ bleiben, weil die
+Seite unter `/ebene17/` und nicht an der Wurzel der Domain steht.

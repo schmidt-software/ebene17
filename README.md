@@ -3,6 +3,8 @@
 Eine endlose isometrische Etage im Browser — prozedural erzeugt, animiert, ohne
 Abhängigkeiten. Ziehen, zoomen, entdecken.
 
+**→ [Live ansehen](https://schmidt-software.github.io/ebene17/)**
+
 ![Bereiche](https://img.shields.io/badge/Bereiche-20--28-4cd7c0) ![Technik](https://img.shields.io/badge/Technik-Canvas%202D-8fa8ff)
 
 ## Starten
@@ -170,6 +172,24 @@ alles Weitere — Oberfläche, Verhalten, Fortsetzen eines Standes — steht in
 - [docs/entscheidungen.md](docs/entscheidungen.md) — dreizehn Entscheidungen mit
   Begründung und Folgekosten
 - [docs/pruefungen.md](docs/pruefungen.md) — was geprüft wird und wie
+
+## Veröffentlichung
+
+Die Seite liegt unter **https://schmidt-software.github.io/ebene17/** und wird von GitHub Pages direkt aus `main` im
+Wurzelverzeichnis ausgeliefert — kein Bauschritt, kein Arbeitsablauf, keine
+Zwischenstufe: jeder Push auf `main` ist nach etwa einer halben Minute live.
+
+Zwei Kleinigkeiten sind dafür nötig:
+
+- **`.nojekyll`** im Wurzelverzeichnis schaltet die Jekyll-Verarbeitung ab. Die Seite
+  ist reines HTML, CSS und JavaScript und braucht keine.
+- **Relative Pfade** in `index.html` (`styles.css`, `js/…`), damit die Seite auch im
+  Unterverzeichnis `/ebene17/` funktioniert.
+
+Auf Pages gibt es keine Artefakt-Laufzeit, also greift Ebene 2 der Speicherschicht:
+der Stand liegt im Browser des jeweiligen Betrachters. Jeder Besucher bekommt beim
+ersten Öffnen eine eigene, zufällige Etage und setzt bei jedem weiteren Besuch genau
+dort fort.
 
 ## Lizenz
 
