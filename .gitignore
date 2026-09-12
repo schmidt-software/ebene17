@@ -1,0 +1,15 @@
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Werkzeuge
+node_modules/
+.playwright-mcp/
+
+# Aufnahmen aus Testläufen
+*.png
+!docs/*.png
+
+# lokale Umgebung
+.env
+.env.*

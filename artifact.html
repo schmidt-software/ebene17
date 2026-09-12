@@ -1,0 +1,102 @@
+<title>Etage 17</title>
+<link rel="stylesheet" href="styles.css">
+
+<canvas id="scene"></canvas>
+<div id="grain"></div>
+
+<!-- Kopfzeile -->
+<header id="topbar">
+  <div class="brand">
+    <span class="logo">ETAGE<b>17</b></span>
+    <span class="tag">der Boden, der nie stillsteht</span>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="tools">
+    <button class="btn" id="btn-tour" title="Automatische Tour (T)">▶ Tour</button>
+    <button class="btn icon" id="btn-zoom-in" title="Heranzoomen (+)">+</button>
+    <button class="btn icon" id="btn-zoom-out" title="Herauszoomen (−)">−</button>
+    <button class="btn icon" id="btn-shuffle" title="Neue Etage generieren">⟳</button>
+    <button class="btn icon" id="btn-help" title="Hilfe (H)">?</button>
+    <button class="btn icon only-mobile" id="btn-menu" title="Bereiche">☰</button>
+  </div>
+</header>
+
+<!-- Seitenleiste -->
+<aside id="sidebar">
+  <div class="side-head">
+    <h2>Bereiche</h2>
+    <input id="search" type="search" placeholder="suchen …" autocomplete="off" spellcheck="false">
+  </div>
+  <ul id="room-list"></ul>
+  <div class="side-foot">
+    <canvas id="minimap" width="220" height="220"></canvas>
+    <p class="hint">Klick in die Karte springt dorthin</p>
+    <p id="save-state" class="off">Speicher wird geprüft …</p>
+  </div>
+</aside>
+
+<!-- Schwebende Infos -->
+<div id="tooltip" hidden></div>
+<div id="locbar"><span id="locname">—</span><span id="loccoord"></span></div>
+
+<!-- Infokarte zur angeklickten Figur -->
+<div id="card" hidden>
+  <button class="close" id="card-close" title="Schliessen (Esc)">×</button>
+  <div class="card-top">
+    <canvas id="card-av" width="176" height="212"></canvas>
+    <div class="card-id">
+      <h3 id="card-name">—</h3>
+      <p id="card-role">—</p>
+      <span class="card-no" id="card-no"></span>
+    </div>
+  </div>
+  <dl id="card-facts"></dl>
+  <div class="card-actions">
+    <button class="btn" id="card-follow">Folgen</button>
+    <button class="btn" id="card-goto">Hinspringen</button>
+  </div>
+</div>
+
+<!-- Hilfe -->
+<div id="modal" hidden>
+  <div class="sheet">
+    <button class="close" id="btn-close">×</button>
+    <h2>ETAGE 17</h2>
+    <p>Eine endlose isometrische Etage, komplett im Browser erzeugt und animiert.
+       Jeder Bereich wird prozedural gebaut — Serverräume, Kantinen, ein Pool, ein Kino,
+       eine Startrampe — und von Figuren bevölkert, die ihren eigenen Wegen folgen.
+       Ein Klick auf eine Figur zeigt, wer sie ist und was sie gerade tut.</p>
+    <p>Die Etage merkt sich ihren Stand: Position, Aufgabe und belegter Platz jeder
+       Figur werden regelmässig gesichert und beim nächsten Öffnen genau dort
+       fortgesetzt — im Speicher dieses Browsers, ohne dass etwas das Gerät verlässt.
+       Der Zustand der Sicherung steht unter der Minikarte.</p>
+    <h3>Steuerung</h3>
+    <table>
+      <tr><td>Klick auf Figur</td><td>Infokarte öffnen</td></tr>
+      <tr><td>Ziehen</td><td>Etage verschieben</td></tr>
+      <tr><td>Mausrad</td><td>Zoomen</td></tr>
+      <tr><td>W A S D / Pfeile</td><td>Bewegen</td></tr>
+      <tr><td>+ / −</td><td>Zoomen</td></tr>
+      <tr><td>T</td><td>Tour starten / stoppen</td></tr>
+      <tr><td>R</td><td>Neue Etage würfeln (verwirft den Stand)</td></tr>
+      <tr><td>H</td><td>Diese Hilfe</td></tr>
+    </table>
+    <p class="small">Eine eigenständige Hommage an das Genre der endlosen Wimmelbild-Animationen
+       im Stil von <i>floor796</i>. Kein Code, keine Grafik und keine Figuren wurden übernommen —
+       alles hier wird zur Laufzeit aus Rechtecken gezeichnet.</p>
+  </div>
+</div>
+
+<!-- Ladeschirm -->
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-logo">ETAGE<b>17</b></div>
+    <div class="boot-bar"><i id="boot-fill"></i></div>
+    <div class="boot-msg" id="boot-msg">Etage wird gebaut …</div>
+  </div>
+</div>
+
+<script src="js/store.js"></script>
+<script src="js/world.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
