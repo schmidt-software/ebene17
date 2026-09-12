@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   ETAGE 17 — Anwendung
+   EBENE 17 — Anwendung
    Kamera, Eingabe, Figurenverhalten, Oberfläche.
    --------------------------------------------------------------- */
 (function (F) {
@@ -30,7 +30,7 @@ let activeRoom = -1;
 function boot(seed, gesichert) {
   const fill = $('boot-fill'), msg = $('boot-msg');
   const steps = [
-    ['Etage wird vermessen …', 15],
+    ['Ebene wird vermessen …', 15],
     ['Räume werden möbliert …', 55],
     ['Bewohner ziehen ein …', 85],
     ['Licht an.', 100]
@@ -186,7 +186,7 @@ function stationDest(a, step) {
   for (let i = 0; i < tries; i++) {
     const st = list[rng.i(0, list.length - 1)];
     if (st.busy) continue;
-    /* fremde Räume kosten Zuschlag, damit niemand ständig quer über die Etage läuft */
+    /* fremde Räume kosten Zuschlag, damit niemand ständig quer über die Ebene läuft */
     const d = Math.abs(st.x - a.x) + Math.abs(st.y - a.y) + (st.room === a.room ? 0 : 30);
     if (d < bestD) { bestD = d; best = st; }
   }
@@ -222,7 +222,7 @@ function seatDest(a) {
   best.taken = true;
   const r = W.rooms[best.room];
   return { x: best.x, y: best.y, station: null, seat: best,
-           label: 'Sitzplatz · ' + (r ? r.name + ' #' + r.no : 'Etage') };
+           label: 'Sitzplatz · ' + (r ? r.name + ' #' + r.no : 'Ebene') };
 }
 
 /* freies Ziel für den Rundgang */
@@ -485,7 +485,7 @@ function drawDyn(d, t) {
 }
 
 /* ---------- Dauerhafter Zustand ----------
-   Die Etage selbst muss nicht gespeichert werden: gleicher Seed, gleiche Räume,
+   Die Ebene selbst muss nicht gespeichert werden: gleicher Seed, gleiche Räume,
    gleiche Möbel, gleiche Arbeitsplätze — in derselben Reihenfolge. Gespeichert
    wird nur, was sich bewegt: wo jede Figur steht, was sie gerade tut und welchen
    Platz sie belegt. Das sind rund 20 KB statt mehrerer Megabyte. */
@@ -539,7 +539,7 @@ function zustandSchreiben(doc) {
     if (sitz) {
       sitz.taken = true; ziel.x = sitz.x; ziel.y = sitz.y;
       const r = W.rooms[sitz.room];
-      if (!platz) ziel.label = 'Sitzplatz · ' + (r ? r.name + ' #' + r.no : 'Etage');
+      if (!platz) ziel.label = 'Sitzplatz · ' + (r ? r.name + ' #' + r.no : 'Ebene');
     }
     a.dest = ziel; a.targetLabel = ziel.label;
 
@@ -888,7 +888,7 @@ function stopTour() {
 
 function reshuffle() {
   if (darfSchreiben && speicherArt !== 'none' && letzteSicherung &&
-      !window.confirm('Neue Etage würfeln? Der gespeicherte Stand dieser Etage geht dabei verloren.')) return;
+      !window.confirm('Neue Ebene würfeln? Der gespeicherte Stand dieser Ebene geht dabei verloren.')) return;
   const seed = (Math.random() * 1e9) | 0;
   letzteSicherung = 0;
   store.clear();

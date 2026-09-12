@@ -1,6 +1,6 @@
 # Entwicklung
 
-Diese Etage entstand in einer einzigen Arbeitssitzung, in acht Schritten. Der Verlauf
+Diese Ebene entstand in einer einzigen Arbeitssitzung, in acht Schritten. Der Verlauf
 steht hier, weil die Begründungen sonst verloren gehen — vor allem die Fehler und
 wie sie gefunden wurden.
 
@@ -11,7 +11,7 @@ die Seite in einem echten Browser (Konsolenfehler, Bildrate, simulierte Klicks).
 
 ## 1 — Grundgerüst
 
-Ziel war eine endlose isometrische Etage im Geiste der grossen Wimmelbild-Animationen:
+Ziel war eine endlose isometrische Ebene im Geiste der grossen Wimmelbild-Animationen:
 ziehen, zoomen, entdecken. Entstanden sind Weltgenerator, Zeichenschicht und Anwendung
 als drei Module ohne Abhängigkeiten, dazu Seitenleiste, Minikarte und automatische Tour.
 
@@ -53,7 +53,7 @@ sichtbar über den Boden gerutscht. Sie läuft jetzt über eine Schrittphase, di
 der zurückgelegten Strecke aufaddiert — rund 1,5 Schritte je Sekunde bei etwa einer
 halben Kachel Schrittlänge. Siehe [Entscheidung 4](entscheidungen.md).
 
-## 4 — Umbenennung in Etage 17
+## 4 — Umbenennung in Ebene 17
 
 Durchgezogen bis in den Code: Seitentitel, Logo, Ladeschirm, Hilfefenster, der
 Namensraum `window.F797` → `window.E17`, die Raumnummern vom 700er- in den
@@ -79,7 +79,7 @@ Irrfahrt mit ordentlicher Wegfindung. Daraus wurde die grosse Ausbaustufe:
   registriert — samt erreichbarem Stehplatz davor — und nach Zweck einsortiert
   (`wartung`, `inventur`, `quelle`, `abgabe`, `ausgabe`, `pflege`, `freizeit`, `sport`,
   `schreibtisch`). Häufige Möbel nur stichprobenweise, sonst wäre jedes einzelne Regal
-  ein Posten. Ergebnis: 286–649 Plätze je Etage.
+  ein Posten. Ergebnis: 286–649 Plätze je Ebene.
 - **Aufgaben**: zehn Vorlagen aus ein bis drei Schritten. Ein Schritt heisst: zu einem
   Arbeitsplatz laufen, dort eine Weile arbeiten, dabei etwas in die Hand nehmen oder
   ablegen. Die Rolle bestimmt die Auswahl, in einem Viertel der Fälle wird stattdessen
@@ -99,7 +99,7 @@ Messung ergab: 17 von 17 mit laufender Aufgabe, Gegenstand jeweils passend.
 
 ## 7 — Dauerhafter Zustand
 
-Die Etage sollte ihren Stand behalten. Entscheidend war die Einsicht, dass die Etage
+Die Ebene sollte ihren Stand behalten. Entscheidend war die Einsicht, dass die Ebene
 selbst gar nicht gespeichert werden muss: gleicher Seed, gleiche Welt — nachgewiesen
 über einen Determinismus-Test, der zwei Läufe desselben Seeds Feld für Feld vergleicht.
 Gesichert werden nur elf Werte je Figur. Das sind 8–15 KB statt mehrerer Megabyte.
@@ -122,7 +122,7 @@ organisationsintern und lässt sich nicht mehr öffentlich teilen. Da öffentlic
 wichtiger war, ist die Anmeldung zurückgenommen; der Code bleibt unverändert und fällt
 auf den Browser-Speicher zurück.
 
-**Dabei korrigiert**: Im Hilfefenster stand „Die Etage läuft weiter, auch wenn niemand
+**Dabei korrigiert**: Im Hilfefenster stand „Die Ebene läuft weiter, auch wenn niemand
 zusieht" — das stimmte nie. Die Simulation läuft nicht im Hintergrund, sie wird beim
 Öffnen aus dem gesicherten Stand fortgesetzt.
 
@@ -144,11 +144,11 @@ Pages-Domain).
 | Grösse | Wert |
 | --- | --- |
 | Bildrate, 1440×900, ~240 Figuren | 60/s |
-| Bildrate bei 24 % Zoom (halbe Etage im Bild) | 60/s |
-| Erzeugung einer Etage | 1–10 ms |
-| Bereiche je Etage | 19–28 |
-| Objekte je Etage | 3 000–4 700 |
-| Arbeitsplätze je Etage | 286–649 |
-| Figuren je Etage | 188–270 |
+| Bildrate bei 24 % Zoom (halbe Ebene im Bild) | 60/s |
+| Erzeugung einer Ebene | 1–10 ms |
+| Bereiche je Ebene | 19–28 |
+| Objekte je Ebene | 3 000–4 700 |
+| Arbeitsplätze je Ebene | 286–649 |
+| Figuren je Ebene | 188–270 |
 | Vernetzung der begehbaren Fläche | 100 % in allen geprüften Seeds |
 | Umfang einer Sicherung | 8–15 KB |

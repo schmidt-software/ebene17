@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------
-   ETAGE 17 — Speicherschicht
-   Hält den Zustand der Etage fest. Drei Ebenen, in dieser Reihenfolge:
+   EBENE 17 — Speicherschicht
+   Hält den Zustand der Ebene fest. Drei Ebenen, in dieser Reihenfolge:
      1. Artefakt-Datenbank der Laufzeit (geteilt, überdauert Sitzungen)
      2. Speicher des Browsers (nur dieses Gerät)
      3. gar nichts — die Seite läuft trotzdem
@@ -9,9 +9,14 @@ window.E17 = window.E17 || {};
 (function (F) {
 'use strict';
 
-const DOC_STATE = 'etage/zustand';      /* gerade Segmentzahl = Dokument */
-const DOC_LEASE = 'etage/fuehrung';     /* Schreibrecht, per Kurzzeitsperre */
-const LOCAL_KEY = 'etage17.zustand';
+const DOC_STATE = 'ebene/zustand';      /* gerade Segmentzahl = Dokument */
+const DOC_LEASE = 'ebene/fuehrung';     /* Schreibrecht, per Kurzzeitsperre */
+const LOCAL_KEY = 'ebene17.zustand';
+/* Vorgängernamen aus der Zeit vor der Umbenennung. Wird nur beim Laden befragt,
+   falls unter dem heutigen Namen noch nichts liegt — sonst ginge ein gespeicherter
+   Stand bei der Umbenennung verloren. Geschrieben wird immer unter dem neuen Namen. */
+const ALT_DOC_STATE = 'etage/zustand';
+const ALT_LOCAL_KEY = 'etage17.zustand';
 const WAIT_MS = 3500;                   /* so lange warten wir auf die Laufzeit */
 const LEASE_MS = 90000;
 
@@ -34,8 +39,8 @@ function reachDb() {
 
 function localOk() {
   try {
-    localStorage.setItem('etage17.probe', '1');
-    localStorage.removeItem('etage17.probe');
+    localStorage.setItem('ebene17.probe', '1');
+    localStorage.removeItem('ebene17.probe');
     return true;
   } catch (e) { return false; }
 }
@@ -60,12 +65,15 @@ F.store = {
   load: function () {
     if (kind === 'db') {
       return db.doc(DOC_STATE).get().then(function (snap) {
-        return snap.exists ? snap.data() : null;
+        if (snap.exists) return snap.data();
+        return db.doc(ALT_DOC_STATE).get().then(function (alt) {
+          return alt.exists ? alt.data() : null;
+        }, function () { return null; });
       }, function () { return null; });
     }
     if (kind === 'local') {
       try {
-        const raw = localStorage.getItem(LOCAL_KEY);
+        const raw = localStorage.getItem(LOCAL_KEY) || localStorage.getItem(ALT_LOCAL_KEY);
         return Promise.resolve(raw ? JSON.parse(raw) : null);
       } catch (e) { return Promise.resolve(null); }
     }
@@ -85,8 +93,11 @@ F.store = {
       });
     }
     if (kind === 'local') {
-      try { localStorage.setItem(LOCAL_KEY, JSON.stringify(doc)); return Promise.resolve(true); }
-      catch (e) { return Promise.resolve(false); }
+      try {
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(doc));
+        if (localStorage.getItem(ALT_LOCAL_KEY)) localStorage.removeItem(ALT_LOCAL_KEY);
+        return Promise.resolve(true);
+      } catch (e) { return Promise.resolve(false); }
     }
     return Promise.resolve(false);
   },
@@ -94,7 +105,9 @@ F.store = {
   clear: function () {
     if (kind === 'db') return db.doc(DOC_STATE).delete().then(function () { return true; },
                                                              function () { return false; });
-    if (kind === 'local') { try { localStorage.removeItem(LOCAL_KEY); } catch (e) {} }
+    if (kind === 'local') {
+      try { localStorage.removeItem(LOCAL_KEY); localStorage.removeItem(ALT_LOCAL_KEY); } catch (e) {}
+    }
     return Promise.resolve(true);
   },
 

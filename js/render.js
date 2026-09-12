@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   ETAGE 17 — Zeichenschicht
+   EBENE 17 — Zeichenschicht
    Alles wird zur Laufzeit aus isometrischen Quadern gebaut.
    --------------------------------------------------------------- */
 (function (F) {

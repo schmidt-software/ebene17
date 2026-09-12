@@ -35,8 +35,8 @@ python3 -m http.server 8017
 
 Worauf zu achten ist:
 
-1. **Konsole** — muss fehlerfrei bleiben, auch beim Würfeln einer neuen Etage (`R`).
-2. **Bildrate** — 60/s bei voller Etage, auch herausgezoomt auf etwa 24 %.
+1. **Konsole** — muss fehlerfrei bleiben, auch beim Würfeln einer neuen Ebene (`R`).
+2. **Bildrate** — 60/s bei voller Ebene, auch herausgezoomt auf etwa 24 %.
 3. **Figuren** — laufen sie flüssig, ohne über den Boden zu rutschen? Stehen sie beim
    Arbeiten dem Möbelstück zugewandt?
 4. **Infokarte** — Klick auf eine Figur. *Aufgabe*, *Ziel* und *Dabei* müssen
@@ -49,12 +49,12 @@ Worauf zu achten ist:
 
 Das Verfahren, mit dem nachgewiesen wurde, dass ein Stand **fortgesetzt** und nicht
 mit gleichem Seed **neu erzeugt** wird — beides sieht auf den ersten Blick gleich aus,
-weil derselbe Seed dieselbe Etage ergibt:
+weil derselbe Seed dieselbe Ebene ergibt:
 
 1. Seite öffnen, etwa 45 Sekunden laufen lassen (die Figuren entfernen sich dabei weit
    von ihren Startplätzen).
 2. Gesicherten Stand **A** auslesen:
-   `JSON.parse(localStorage.getItem('etage17.zustand'))`
+   `JSON.parse(localStorage.getItem('ebene17.zustand'))`
 3. Seite neu laden, 16 Sekunden warten (eine Sicherung läuft alle 12 s), Stand **B**
    auslesen.
 4. Startaufstellung **S** in Node erzeugen: `E17.generate(seedA).agents`

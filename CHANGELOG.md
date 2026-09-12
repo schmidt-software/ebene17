@@ -3,9 +3,19 @@
 Die Versionen folgen dem Schema `haupt.neben`. Solange die Hauptnummer 0 ist, können
 sich das Speicherformat und die Erzeugung noch ändern.
 
+## Unveröffentlicht
+
+- **Umbenennung in „Ebene 17"**, durchgezogen bis in den Code. Der Name stand vorher im
+  Widerspruch zum Repository `ebene17`. Mitgeändert: Titel, Logo, Ladeschirm, Hilfefenster,
+  sämtliche Texte und Dokumente — dort auch das gewöhnliche Wort „Etage", sonst hätte
+  „Ebene 17" neben „eine endlose Etage" gestanden.
+- **Speicherschlüssel** heissen jetzt `ebene17.zustand` bzw. `ebene/zustand`. Stände aus
+  der Zeit davor gehen nicht verloren: liegt unter dem neuen Namen nichts, wird der alte
+  gelesen und beim nächsten Sichern übernommen; der alte Eintrag wird dann geräumt.
+
 ## 0.1 — 12. September 2026
 
-Erste benannte Fassung. Die Etage ist vollständig begehbar, belebt und behält ihren
+Erste benannte Fassung. Die Ebene ist vollständig begehbar, belebt und behält ihren
 Stand.
 
 **Welt**
@@ -15,7 +25,7 @@ Stand.
   Seeds ist die begehbare Fläche zu 100 % vernetzt.
 - Zwölf Raumthemen mit eigener Möblierung: Serverraum, Kantine, Labor, Pool, Kino,
   Arcade, Bibliothek, Gewächshaus, Werkstatt, Büro, Sporthalle, Startrampe.
-- 3 000–4 700 Objekte je Etage, alle zur Laufzeit aus Rechtecken gezeichnet — keine
+- 3 000–4 700 Objekte je Ebene, alle zur Laufzeit aus Rechtecken gezeichnet — keine
   Bilddateien, keine Abhängigkeiten, kein Bauschritt.
 
 **Figuren**
@@ -34,14 +44,14 @@ Stand.
 **Dauerhafter Zustand**
 
 - Gespeichert werden Seed und elf Werte je Figur — 8–15 KB statt mehrerer Megabyte.
-  Möglich, weil derselbe Seed dieselbe Etage in derselben Reihenfolge liefert; geprüft
+  Möglich, weil derselbe Seed dieselbe Ebene in derselben Reihenfolge liefert; geprüft
   bei jedem Testlauf.
 - Drei Ebenen: Artefakt-Datenbank, sonst Browser-Speicher, sonst nichts.
 
 **Veröffentlichung**
 
 - GitHub Pages, direkt aus `main` im Wurzelverzeichnis: <https://schmidt-software.github.io/ebene17/>
-- 60 Bilder je Sekunde bei voller Etage, auch herausgezoomt.
+- 60 Bilder je Sekunde bei voller Ebene, auch herausgezoomt.
 
 Der ausführliche Verlauf samt der gefundenen Fehler steht in
 [docs/entwicklung.md](docs/entwicklung.md), die Begründungen in

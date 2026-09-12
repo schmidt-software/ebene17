@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------
-   ETAGE 17 — Weltgenerator
-   Baut eine Etage: BSP-Räume, Gänge, Einrichtung und Bewohner.
+   EBENE 17 — Weltgenerator
+   Baut eine Ebene: BSP-Räume, Gänge, Einrichtung und Bewohner.
    Alles deterministisch aus einem Seed.
    --------------------------------------------------------------- */
 window.E17 = window.E17 || {};

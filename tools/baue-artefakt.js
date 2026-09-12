@@ -10,7 +10,7 @@ const quelle = fs.readFileSync(path.join(wurzel, 'index.html'), 'utf8');
 const treffer = quelle.match(/<body>([\s\S]*)<\/body>/);
 if (!treffer) { console.error('Kein <body> in index.html gefunden.'); process.exit(1); }
 
-const seite = '<title>Etage 17</title>\n<link rel="stylesheet" href="styles.css">\n\n' +
+const seite = '<title>Ebene 17</title>\n<link rel="stylesheet" href="styles.css">\n\n' +
               treffer[1].trim() + '\n';
 fs.writeFileSync(path.join(wurzel, 'artifact.html'), seite);
 console.log('artifact.html geschrieben (' + seite.length + ' Zeichen)');

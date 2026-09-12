@@ -1,6 +1,6 @@
-# Etage 17
+# Ebene 17
 
-Eine endlose isometrische Etage im Browser — prozedural erzeugt, animiert, ohne
+Eine endlose isometrische Ebene im Browser — prozedural erzeugt, animiert, ohne
 Abhängigkeiten. Ziehen, zoomen, entdecken.
 
 **→ [Live ansehen](https://schmidt-software.github.io/ebene17/)**
@@ -24,12 +24,12 @@ geladen, daher gibt es keine CORS-Probleme.)
 | Eingabe | Wirkung |
 | --- | --- |
 | Klick auf eine Figur | Infokarte mit Porträt, Name, Bereich und Tätigkeit |
-| Ziehen / Wischen | Etage verschieben |
+| Ziehen / Wischen | Ebene verschieben |
 | Mausrad, Zwei-Finger-Geste | Zoomen |
 | `W` `A` `S` `D`, Pfeiltasten | Bewegen |
 | `+` / `−` | Zoomen |
 | `T` | Automatische Tour |
-| `R` | Neue Etage würfeln |
+| `R` | Neue Ebene würfeln |
 | `H` | Hilfe |
 
 Klick auf einen Bereich in der Seitenleiste oder in die Minikarte springt dorthin.
@@ -55,7 +55,7 @@ docs/                    Entwicklung, Entscheidungen, Prüfungen
 Keine Abhängigkeiten, kein Bauschritt, keine Bilddateien: rund 2 600 Zeilen
 HTML, CSS und JavaScript, gezeichnet auf einem Canvas.
 
-### Wie die Etage entsteht
+### Wie die Ebene entsteht
 
 1. **Aufteilen** — ein 148×148-Raster wird per BSP in Flächen zerlegt, jede Fläche
    bekommt mit Rand einen Raum.
@@ -71,7 +71,7 @@ HTML, CSS und JavaScript, gezeichnet auf einem Canvas.
    Serverschränke und Maschinen als `wartung`, Regale und Spinde als `inventur`,
    Kisten als `quelle` und `abgabe`, die Essensausgabe als `ausgabe`, Beete als
    `pflege`, Automaten als `freizeit`. Häufige Möbel nur stichprobenweise, damit
-   nicht jedes einzelne Regal zum Posten wird — je Etage rund 300–650 Plätze.
+   nicht jedes einzelne Regal zum Posten wird — je Ebene rund 300–650 Plätze.
 6. **Bevölkern** — 190–270 Figuren mit eigenen Merkmalen: Größe, Hautton, Kleidung,
    Schuhe, eine von sechs Frisuren, manchmal ein Namensschild. Was sie in der Hand
    halten, entscheidet dagegen die laufende Aufgabe.
@@ -100,7 +100,7 @@ Pause, Freizeit, Training.
 
 Arbeitsplätze und Sitzplätze werden **reserviert**, solange jemand sie nutzt, damit
 nicht zwei Figuren im selben Regal stehen. Ziele werden aus einer Stichprobe nach
-Nähe gewählt (fremde Räume mit Zuschlag), sodass niemand ständig quer über die Etage
+Nähe gewählt (fremde Räume mit Zuschlag), sodass niemand ständig quer über die Ebene
 läuft. Findet sich kein passender Platz oder kein Weg, bricht die Aufgabe sauber ab
 und die Figur sucht sich eine neue — hängenbleiben kann niemand.
 
@@ -108,7 +108,7 @@ Die Infokarte macht das alles sichtbar: **Aufgabe**, **Zustand** (unterwegs,
 arbeitet, sitzt, wartet), aktuelle **Tätigkeit** und das konkrete **Ziel** —
 etwa „Regal · Bibliothek #1722".
 
-Alles hängt an einem Seed: gleicher Seed, gleiche Etage.
+Alles hängt an einem Seed: gleicher Seed, gleiche Ebene.
 
 ### Zeichnung
 
@@ -121,7 +121,7 @@ liegt.
 
 ## Dauerhafter Zustand
 
-Die Etage überlebt das Schliessen des Tabs. Gespeichert wird **nicht** die Etage
+Die Ebene überlebt das Schliessen des Tabs. Gespeichert wird **nicht** die Ebene
 selbst — gleicher Seed erzeugt bit-genau dieselben Räume, Möbel, Arbeitsplätze und
 Figuren, in derselben Reihenfolge. Gespeichert wird nur, was sich bewegt:
 
@@ -131,7 +131,7 @@ Figuren, in derselben Reihenfolge. Gespeichert wird nur, was sich bewegt:
               arbeitsplatz, sitzplatz, raum], … ] }
 ```
 
-Rund 8–15 KB je Etage statt mehrerer Megabyte. Beim Laden wird die Etage aus dem
+Rund 8–15 KB je Ebene statt mehrerer Megabyte. Beim Laden wird die Ebene aus dem
 Seed neu gebaut, danach werden Positionen, Aufgaben und Platzreservierungen
 daraufgelegt; wer unterwegs war, bekommt seinen Weg neu berechnet.
 
@@ -151,7 +151,7 @@ daraufgelegt; wer unterwegs war, bekommt seinen Weg neu berechnet.
 > greift aber nur, wenn die Fähigkeit angemeldet ist.
 
 Gesichert wird alle 12 Sekunden sowie beim Verlassen oder Verstecken des Tabs.
-`R` (neue Etage) verwirft den Stand und fragt vorher nach.
+`R` (neue Ebene) verwirft den Stand und fragt vorher nach.
 
 ## Prüfen
 
@@ -161,7 +161,7 @@ node tools/baue-artefakt.js    # artifact.html neu erzeugen
 ```
 
 Der Determinismus-Test ist der wichtigste: die Speicherung beruht darauf, dass
-derselbe Seed dieselbe Etage in derselben Reihenfolge liefert. Das Verfahren für
+derselbe Seed dieselbe Ebene in derselben Reihenfolge liefert. Das Verfahren für
 alles Weitere — Oberfläche, Verhalten, Fortsetzen eines Standes — steht in
 [docs/pruefungen.md](docs/pruefungen.md).
 
@@ -189,7 +189,7 @@ Zwei Kleinigkeiten sind dafür nötig:
 
 Auf Pages gibt es keine Artefakt-Laufzeit, also greift Ebene 2 der Speicherschicht:
 der Stand liegt im Browser des jeweiligen Betrachters. Jeder Besucher bekommt beim
-ersten Öffnen eine eigene, zufällige Etage und setzt bei jedem weiteren Besuch genau
+ersten Öffnen eine eigene, zufällige Ebene und setzt bei jedem weiteren Besuch genau
 dort fort.
 
 ## Lizenz

@@ -6,7 +6,7 @@ Warum die Dinge so sind, wie sie sind — samt dem, was dadurch teurer wurde.
 
 ### 1 — Alles zur Laufzeit zeichnen, keine Bilddateien
 
-**Lage.** Eine Wimmelbild-Etage braucht hunderte verschiedener Objekte.
+**Lage.** Eine Wimmelbild-Ebene braucht hunderte verschiedener Objekte.
 
 **Entscheidung.** Jedes Objekt ist ein isometrischer Quader aus drei Flächen (Deckel,
 zwei Seiten, automatisch abgestuft aus einer Grundfarbe) plus etwas Eigenleben. Kein
@@ -18,11 +18,11 @@ Sonderbehandlung.
 
 ### 2 — Prozedural aus einem Seed statt handgebauter Karte
 
-**Entscheidung.** Die Etage entsteht per Flächenteilung, Gängen und Möblierungsfunktionen
+**Entscheidung.** Die Ebene entsteht per Flächenteilung, Gängen und Möblierungsfunktionen
 je Thema aus einer einzigen Zahl.
 
-**Folgen.** Unbegrenzt viele Etagen, `R` würfelt eine neue. Der Preis: Räume lassen sich
-nicht von Hand komponieren, und jede Änderung an der Möblierung verändert alle Etagen.
+**Folgen.** Unbegrenzt viele Ebenen, `R` würfelt eine neue. Der Preis: Räume lassen sich
+nicht von Hand komponieren, und jede Änderung an der Möblierung verändert alle Ebenen.
 Der eigentliche Gewinn zeigte sich später bei der Speicherung (siehe 9).
 
 ### 3 — Gänge nur ins Leere graben
@@ -78,7 +78,7 @@ Suche nach dem nächstgelegenen freien untergeht.
 **Entscheidung.** Je Möbeltyp eine Eintragungsdichte (Regale und Serverschränke 0,3,
 Kisten 0,6, seltene Geräte 1,0).
 
-**Folgen.** 286–649 Plätze je Etage — genug Auswahl, überschaubare Suche.
+**Folgen.** 286–649 Plätze je Ebene — genug Auswahl, überschaubare Suche.
 
 ### 8 — Nur wenige Figuren starten sitzend
 
@@ -89,14 +89,14 @@ die Pausen brauchen.
 **Entscheidung.** Höchstens 40 Figuren starten sitzend, mit kurzem Zeitgeber; dafür mehr
 laufende Belegschaft.
 
-**Folgen.** Die Etage ist von der ersten Sekunde an in Betrieb.
+**Folgen.** Die Ebene ist von der ersten Sekunde an in Betrieb.
 
-### 9 — Speichern, was sich bewegt — nicht die Etage
+### 9 — Speichern, was sich bewegt — nicht die Ebene
 
-**Lage.** Ein vollständiger Weltzustand wären mehrere Megabyte je Etage.
+**Lage.** Ein vollständiger Weltzustand wären mehrere Megabyte je Ebene.
 
 **Entscheidung.** Gespeichert werden Seed und elf Werte je Figur; Arbeits- und
-Sitzplätze werden über ihren Index angesprochen. Beim Laden wird die Etage aus dem Seed
+Sitzplätze werden über ihren Index angesprochen. Beim Laden wird die Ebene aus dem Seed
 neu gebaut und der Stand daraufgelegt.
 
 **Folgen.** 8–15 KB statt Megabyte. Bedingung ist strenger Determinismus: gleicher Seed
@@ -115,7 +115,7 @@ weicht die Schicht auf den Browser aus; vorübergehende Fehler werden ausgesesse
 
 ### 11 — Ein Schreiber, per Kurzzeitsperre
 
-**Lage.** Mehrere offene Tabs simulieren dieselbe Etage und würden sich gegenseitig
+**Lage.** Mehrere offene Tabs simulieren dieselbe Ebene und würden sich gegenseitig
 überschreiben — der Speicher kennt nur „der letzte gewinnt".
 
 **Entscheidung.** Wer die Sperre hält, schreibt; die übrigen laufen nur lesend mit und
@@ -140,7 +140,7 @@ angemeldet wird.
 
 **Entscheidung.** Aufbau, Grafik und Figuren sind vollständig eigen; gezeichnet wird
 ausschliesslich aus Rechtecken und Ellipsen zur Laufzeit. Übernommen ist allein die
-Idee der Gattung: eine endlose Etage voller kleiner Szenen.
+Idee der Gattung: eine endlose Ebene voller kleiner Szenen.
 
 ### 14 — GitHub Pages als öffentliche Heimat
 
