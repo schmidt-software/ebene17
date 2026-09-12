@@ -171,6 +171,11 @@ alles Weitere — Oberfläche, Verhalten, Fortsetzen eines Standes — steht in
   Begründung und Folgekosten
 - [docs/pruefungen.md](docs/pruefungen.md) — was geprüft wird und wie
 
+## Lizenz
+
+[MIT](LICENSE) — nutzen, ändern, weitergeben, auch gewerblich; der Lizenztext und
+der Urheberrechtsvermerk müssen mitgehen, eine Gewährleistung gibt es nicht.
+
 ## Hinweis
 
 Eine eigenständige Hommage an das Genre der endlosen Wimmelbild-Animationen im
